@@ -32,18 +32,47 @@ console.log(makeChange(24)); // Output: { "q": 0, "d": 2, "n": 0, "p": 4 }
 // Do not the change the code below
 const c = prompt("Enter c: ");
 alert(JSON.stringify(makeChange(c)));*/
-const makeChange = (c) => {
-  // your name here
-	const q=Math.floor(c/25);
-	const remainingCentsAfterQuarters=c%25;
-	const d=Math.floor(remainingCentsQuarters/10);
-	const remainingCentsAfterDimes=remainingCentsAfterQuarters%10;
-	const n=Math.floor(remainingCentsAfterDimes/5);
-	const remainingCentsAfterNickels=remainingCentsAfterDimes%5;
-	const p=remainingCentsAfterNickels;
-	return{"q":q,"d":}d,"n":n,"p":p};
-};
 
-// Do not the change the code below
-// const c = prompt("Enter c: ");
-// alert(JSON.stringify(makeChange(c)));
+ const makeChange = (c) => {
+  const myMoney = {
+    penny: 1,
+    nickel: 5,
+    dime: 10,
+    quarter:25
+  };
+
+  let change = {
+    q: 0,
+    d: 0,
+    n: 0,
+    p: 0
+  };
+
+  
+  
+  while (c >0) {
+    if (c >= myMoney.quarter) {
+      change.q++;
+      c -= myMoney.quarter;
+    } else if (c >= myMoney.dime) {
+      change.d++;
+      c -= myMoney.dime;
+    } else if (c >= myMoney.nickel) {
+      change.n++;
+      c -= myMoney.nickel;
+    } else if (c >= myMoney.penny) {
+      change.p++;
+      c -= myMoney.penny;
+    }
+	  else {
+		  break;
+	  }
+  }
+  
+  return change;
+}
+
+// Example: Prompt the user to enter a value for 'c'
+const userInput = prompt("Enter c: ");
+const result = makeChange(userInput);
+alert(JSON.stringify(result));
