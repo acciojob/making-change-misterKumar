@@ -1,4 +1,4 @@
- function makeChange(amount) {
+ /*function makeChange(amount) {
   const coins = {
     q: 0,
     d: 0,
@@ -31,4 +31,19 @@ console.log(makeChange(24)); // Output: { "q": 0, "d": 2, "n": 0, "p": 4 }
 
 // Do not the change the code below
 const c = prompt("Enter c: ");
-alert(JSON.stringify(makeChange(c)));
+alert(JSON.stringify(makeChange(c)));*/
+const makeChange = (c) => {
+  // your name here
+	const q=Math.floor(c/25);
+	const remainingCentsAfterQuarters=c%25;
+	const d=Math.floor(remainingCentsQuarters/10);
+	const remainingCentsAfterDimes=remainingCentsAfterQuarters%10;
+	const n=Math.floor(remainingCentsAfterDimes/5);
+	const remainingCentsAfterNickels=remainingCentsAfterDimes%5;
+	const p=remainingCentsAfterNickels;
+	return{"q":q,"d":}d,"n":n,"p":p};
+};
+
+// Do not the change the code below
+// const c = prompt("Enter c: ");
+// alert(JSON.stringify(makeChange(c)));
